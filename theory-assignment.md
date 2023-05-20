@@ -19,6 +19,7 @@
 
     You might notice this while building the project. For the first time, it might take longer (2s in my case) and for subsequent builds the time got reduced (200ms)
 
+
 4. What is npx ?
 
     npx is a npm package runner that is used to execute the command without installing the package (just use on the go). When you run a package using npx, it searches for the package in the local and global registry, and then it runs the package. If the package is not already installed, npx downloads the package files and installs the package, but it will only cache the files instead of saving it.
@@ -28,6 +29,7 @@
     npx parcel index.html -> npx searches for parcel package in your environment and if not found, downloads it and then runs the command. (with index.html as entry point. you can remove index.html and put it in the source of package.json as well)
 
     npx create-react-app my-app -> npx seraches for create-react-app package in your environment, if not found, downlaods it and then creates my-app using create-react-app in the current project directory.
+
 
 5. What is difference between dependencies vs devDependencies
 
@@ -42,6 +44,7 @@
 	a) Packages that are required only in the development environment, and not in prod/testing environment
 	b) Command : npm install -D <package-name>or npm install --save-dev <package-name>
 	c) Eg: parcel
+
 
 6. What is Tree Shaking?
 
@@ -62,6 +65,7 @@
     Parcel automatically does HMR while the application uses a framework (Eg:React, Vue). If no framework is used, then HMR can be opted using module.hot API
 
     Webpack needs some configuration to be done for using HMR
+
 
 8. List down your favourite superpowers of Parcel and describe any 3 of them in your own words.
 
@@ -97,9 +101,11 @@
     
     2.Caching - Parcel caches everything it builds. f you restart the dev server, Parcel will only rebuild files that have changed since the last time it ran. Parcel automatically tracks all of the files, configuration, plugins, and dev dependencies that are involved in your build 3.Image optimization - Bzy default, Parcel includes lossless image optimization for JPEGs and PNGs in prod. mode, which reduces the size of images without affecting their quality. No configuration or query parameters are required to use.
 
+
 9. What is .gitignore? What should we add and not add into it?
 
     .gitignore file is a text file where we can mention the files/directories to ignore. That is, those files/directories will not be pushed into the git repositories. The great advantage of putiing them in .gitignore file is that those can be huge in size and those files can be generated with the help of package.json or package-lock.json file. It's very important to put node_modules in the .gitignore file since it contains a lot of packages which can be installed later by using package.json file. Other directories that should be placed in .gitignore file are .parcel-cache and dist. package.json and package-lock.json must not be put in .gitignore file.
+
 
 10. What is the difference between package.json and package-lock.json
 
@@ -137,19 +143,23 @@
 
     As the name suggests, it locks the package-lock.json file, since it contains sensitive data which are not indened to modify. As it contains the entire tree of dependencies, modifying any of the entries which might have a dependency to that entry might be affected. This causes inconsistency in the project.
 
+
 12. What is node_modules ? Is it a good idea to push that on git?
 
     In simple words, node_modules holds the source code of the packages that are installed through npm. It is a very bad practice to push node_modules to git (source control) since it is huge in size and blow up the project capacity and moreover all the packages in node_modules can be re-generated using package.json file.
 
+
 13. What is the dist folder?
 
     dist folder is created once the application is build using parcel web application bundler. IT contains the output of the bundler i.e all js files, css files and html files bundled into a single js file, css file and html file that is compressed and minified.
+
 
 14. What is browserlists. Read about dif bundlers: vite, webpack, parcel
 
     The browserslist field in package.json can be used to specify which browsers/node.js versions the application supports. The value of this object can be an array of statistics ( % coverage), last versions, Node.js versions, Browser versions or even unreleased versions.
 
     browsersList" : ["last 2 versions", "> 1%", "not dead"]
+
 
 15. Read about: ^ - caret and ~ - tilda
 
